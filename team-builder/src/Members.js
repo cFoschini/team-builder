@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
+import Form from "./Form"
 
-export default function Members() {
+export default function Members(props) {
+const {input} = props;
 
     const [member, setMember] = useState([{
         name: "Christian",
@@ -33,6 +35,10 @@ const handleDel = (id) => {
     setMember(newMembers);
 }
 
+const handleAdd = (input, setInput) => {
+    ...input
+}
+
 
 
     return (
@@ -46,6 +52,8 @@ const handleDel = (id) => {
                 <button onClick={() =>handleDel(mem.id)}>Delete</button>
                 </div>
             ))}
+            <Form/>
+            <button onClick={handleAdd}>Add Member</button>
             </div>
     );
 }
